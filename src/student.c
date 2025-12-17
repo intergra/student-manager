@@ -34,7 +34,7 @@ Student* createStudent(const char *id, const char *name, const char *major, floa
     // 动态分配内存，大小为一个Student结构体
     Student *newStudent = (Student*)malloc(sizeof(Student));
     if (newStudent == NULL) {
-        printf(" Error: 内存分配失败！\n");
+        printf("[错误] 内存分配失败！\n");
         return NULL;
     }
 
@@ -130,12 +130,12 @@ void addStudent() {
     // scanf 返回 1 表示成功读入了一个浮点数
     if (scanf("%f", &gpa) != 1 || gpa < 0.0 || gpa > 4.0) {
         // 清空输入缓冲区，防止死循环
-        while (getchar() != '\n');
+        while (getchar() != '\n') {}
         printf(" [错误] GPA必须在0.0到4.0之间！\n");
         return;
     }
     // 吃掉 scanf 留下的换行符
-    while (getchar() != '\n');
+    while (getchar() != '\n') {}
 
     // 创建节点
     Student *newStudent = createStudent(id, name, major, gpa);
@@ -156,7 +156,7 @@ void addStudent() {
 void displayAllStudents() {
     if (head == NULL) {
         printf(" 暂无学生信息\n");
-        printf(" 提示: 请先使用菜单选项1添加学生\n");
+        printf(" [提示] 请先使用菜单选项1添加学生\n");
         return;
     }
 
@@ -197,13 +197,14 @@ void displayAllStudents() {
 
 // 查找学生
 void searchStudent() {
+    // 没有学生时
     if (head == NULL) {
-        printf(" 暂无学生信息\n");
+        printf("[提示] 暂无学生信息!\n");
         return;
     }
 
     char id[MAX_ID];
-    printf("请输入要查找的学号: ");
+    printf(" 请输入要查找的学号: ");
     fgets(id, MAX_ID, stdin);
     id[strcspn(id, "\n")] = '\0';
 
@@ -231,7 +232,7 @@ void searchStudent() {
 // 修改学生信息
 void updateStudent() {
     if (head == NULL) {
-        printf(" 暂无学生信息\n");
+        printf("[提示] 暂无学生信息\n");
         return;
     }
 
@@ -289,7 +290,7 @@ void updateStudent() {
 // 删除学生
 void deleteStudent() {
     if (head == NULL) {
-        printf(" 暂无学生信息\n");
+        printf("[提示] 暂无学生信息\n");
         return;
     }
 
@@ -310,10 +311,12 @@ void deleteStudent() {
             printf("  姓名: %s\n", current->name);
             printf("  确认删除？(y/n): ");
 
+            // 获取字符confirm，并清除缓冲区
             char confirm;
             scanf(" %c", &confirm);
-            while (getchar() != '\n');
+            while (getchar() != '\n') {}
 
+            // 不是y或者Y
             if (confirm != 'y' && confirm != 'Y') {
                 printf(" 删除操作已取消\n");
                 return;
@@ -344,14 +347,15 @@ void deleteStudent() {
 
 // 排序 (使用冒泡排序算法交换节点数据)
 void sortStudents() {
+    // 学生数量为0或1时
     if (head == NULL || head->next == NULL) {
-        printf(" 学生数量不足，无需排序\n");
+        printf("[提示] 学生数量不足，无需排序\n");
         return;
     }
 
-    int swapped;               // 每轮开始，假设没有交换
-    Student *ptr1;
-    Student *lptr = NULL;      // 指向已排序部分的其实位置
+    int swapped;                // 每轮开始，假设没有交换
+    Student *ptr1;              // 操作最前面的节点开始比较排序
+    Student *lptr = NULL;       // 指向上一次冒泡排序结束时的节点
     do {
         swapped = 0;
         ptr1 = head;
@@ -390,14 +394,14 @@ void sortStudents() {
         lptr = ptr1; // 每一轮冒泡后，最后的元素已经是最大的了
     } while (swapped);
 
-    printf("Success: 已按GPA从高到低排序完成！\n\n");
+    printf("[成功] 已按GPA从高到低排序完成！\n\n");
     displayAllStudents(); // 排序后直接显示
 }
 
 // 统计信息
 void calculateStatistics() {
     if (head == NULL) {
-        printf("暂无学生信息\n");
+        printf("[提示] 暂无学生信息\n");
         return;
     }
 
@@ -424,6 +428,7 @@ void calculateStatistics() {
             minGpa = current->gpa;
             minStudent = current;
         }
+        // 到下一个节点
         current = current->next;
     }
 
@@ -446,6 +451,7 @@ void calculateStatistics() {
     printf("└─────────────────────────────────────────────┘\n");
 
     // 统计GPA分布区间
+    // 优秀，良好，中等，较差
     int excellent = 0, good = 0, average_count = 0, poor = 0;
     current = head;
     while (current != NULL) {
@@ -478,9 +484,11 @@ void saveToFile() {
     }
 
     Student *current = head;
-    while (current != NULL) {
+    while (current != NULL) {   // 循环保存
         // fwrite(数据指针, 单个大小, 数量, 文件指针)
         fwrite(current, sizeof(Student), 1, file);
+
+        // 指向下一个节点
         current = current->next;
     }
 

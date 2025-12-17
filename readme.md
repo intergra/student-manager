@@ -99,7 +99,9 @@ GPA           : 0.0 - 4.0 浮点数
 cd student-manager
 
 # 创建构建目录
-mkdir cmake-build-debug
+mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
+
+#  进入构建目录
 cd cmake-build-debug
 
 # 配置并编译
@@ -110,6 +112,9 @@ cmake --build .
 chcp 65001
 
 # 运行程序
+./student-manager
+
+# 运行程序(如果上一条命令报错)
 student-manager.exe
 ```
 
