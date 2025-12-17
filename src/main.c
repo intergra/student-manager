@@ -50,13 +50,13 @@ int main() {
                 sortStudents();             // 按下6：给学生排序(根据GPA)
                 break;
             case 7:
-                calculateStatistics();
+                calculateStatistics();      // 按下7：计算并显示统计信息
                 break;
             case 8:
-                saveToFile();
+                saveToFile();               // 按下8：保存数据到student.dat文件
                 printf(" 数据已成功保存到文件！\n");
                 break;
-            case 0:
+            case 0:                         // 按下0：退出程序
                 saveToFile();
                 freeAllStudents();
                 printf("╔════════════════════════════════════════╗\n");
