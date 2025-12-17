@@ -95,6 +95,9 @@ GPA           : 0.0 - 4.0 浮点数
 #### Windows
 
 ```bash
+# 克隆项目
+git clone https://github.com/intergra/student-manager.git
+
 # 进入项目目录
 cd student-manager
 
@@ -121,6 +124,9 @@ student-manager.exe
 #### Linux
 
 ```bash
+# 克隆项目
+git clone https://github.com/intergra/student-manager.git
+
 # 进入项目目录
 cd student-manager
 

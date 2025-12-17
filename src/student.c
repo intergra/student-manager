@@ -83,12 +83,9 @@ void addStudent() {
     printf("│         添加学生信息                │\n");
     printf("└─────────────────────────────────────┘\n\n");
 
-    // === 输入学号 ===
     printf("请输入学号: ");
-    // 使用 fgets 读取字符串，允许包含空格（虽然学号一般没有）
-    fgets(id, MAX_ID, stdin);
-    // 去除 fgets 读入的换行符 '\n'
-    id[strcspn(id, "\n")] = '\0';
+    fgets(id, MAX_ID, stdin);             // 使用 fgets 读取字符串，允许包含空格（虽然学号一般没有）
+    id[strcspn(id, "\n")] = '\0';       // 去除 fgets 读入的换行符 '\n'
 
     if (strlen(id) == 0) {
         printf(" [错误] 学号不能为空！\n");
@@ -134,7 +131,8 @@ void addStudent() {
         printf(" [错误] GPA必须在0.0到4.0之间！\n");
         return;
     }
-    // 吃掉 scanf 留下的换行符
+
+    // 清除输入缓冲区
     while (getchar() != '\n') {}
 
     // 创建节点
@@ -142,14 +140,11 @@ void addStudent() {
     if (newStudent == NULL) return;
 
     // 头插法插入链表
-    // 将新节点的 next 指向当前的头
-    newStudent->next = head;
-    // 更新头指针指向新节点
-    head = newStudent;
+    newStudent->next = head;    // 将新节点的 next 指向当前的头
+    head = newStudent;          // 更新头指针指向新节点
 
     printf("\n [成功] 学生信息添加成功！\n");
-    printf("   学号: %s | 姓名: %s | 专业: %s | GPA: %.2f\n",
-           id, name, major, gpa);
+    printf("   学号: %s | 姓名: %s | 专业: %s | GPA: %.2f\n", id, name, major, gpa);
 }
 
 // 显示所有学生
@@ -237,7 +232,8 @@ void updateStudent() {
     }
 
     // 安全读取字符串
-    // fgets 会把换行符 \n 也读进去。id	存储输入的目标数组，MAX_ID:最多读取的字符数（防止溢出），stdin:从标准输入（键盘）读取
+    // fgets 会把换行符 \n 也读进去。
+    // id：存储输入的目标数组，MAX_ID：最多读取的字符数（防止溢出），stdin：从标准输入（键盘）读取
     // strcspn 函数的作用是：查找字符串中第一次出现指定字符的位置
     char id[MAX_ID];
     printf("请输入要修改的学号: ");
