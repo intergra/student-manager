@@ -194,7 +194,7 @@ void displayAllStudents() {
     // 遍历打印数据
     current = head;
     while (current != NULL) {
-        printf(" %-14s  %-14s  %-34s  %-8.2f \n",
+        printf("   %-14s  %-14s  %-32s  %-8.2f \n",
                current->id, current->name, current->major, current->gpa);
         current = current->next;
     }
@@ -448,8 +448,8 @@ void calculateStatistics() {
     printf("│              统计信息                       │\n");
     printf("├─────────────────────────────────────────────┤\n");
     // 格式化输出，%-30d 表示左对齐数字，保证右侧边框对齐
-    printf(" 学生总数: %-31d │\n", count);
-    printf(" 平均GPA:  %-30.2f │\n", average);
+    printf(" 学生总数: %-31d \n", count);
+    printf(" 平均GPA:  %-30.2f \n", average);
     printf("                                             \n");
     // 这里预留了空格填补之前位置，保持对齐
     printf(" 最高GPA:  %-33.2f         \n", maxGpa);
