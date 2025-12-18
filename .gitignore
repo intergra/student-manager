@@ -47,6 +47,9 @@ cmake-build-debug/
 cmake-build-release/
 build/
 
+# Data files
+data/
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
