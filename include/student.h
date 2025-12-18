@@ -4,7 +4,7 @@
 #define MAX_NAME 50
 #define MAX_MAJOR 50
 #define MAX_ID 20
-#define DATA_FILE "students.dat"
+#define DATA_FILE "../data/students.dat"
 
 // Student结构体
 typedef struct Student {
