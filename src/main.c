@@ -13,11 +13,15 @@
  *            SPDX-License-Identifier: MIT
  */
 
-#include <stdio.h>
 #include "../include/student.h"
+#include <windows.h>
+#include <stdio.h>
+
 
 int main() {
-    int choice;
+
+    // 强制把控制台设为 UTF-8 模式
+    SetConsoleOutputCP(65001);
 
     // 程序启动时从文件加载数据
     loadFromFile();
@@ -27,6 +31,7 @@ int main() {
     printf("║     欢迎使用学生信息管理系统 v1.0     ║\n");
     printf("╚════════════════════════════════════════╝\n");
 
+    int choice;
     // 主循环
     while (1) {
         // 显示Menu和提示

@@ -111,14 +111,14 @@ cd cmake-build-debug
 cmake ..
 cmake --build .
 
-# 设置UTF-8编码（避免中文乱码）
-chcp 65001
+# 手动设置UTF-8编码(如果有中文乱码时)
+# chcp 65001
 
 # 运行程序
 ./student-manager
 
 # 运行程序(如果上一条命令报错)
-student-manager.exe
+# student-manager.exe
 ```
 
 #### Linux
