@@ -36,16 +36,20 @@
 *.i*86
 *.x86_64
 *.hex
-student-manager
+
+# Build files
+cmake-build-debug/
+cmake-build-release/
+build/
+
+# Data files
+data/student.dat
 
 # Debug files
 *.dSYM/
 *.su
 *.idb
 *.pdb
-cmake-build-debug/
-cmake-build-release/
-build/
 
 
 # Kernel Module Compile Results

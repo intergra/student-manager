@@ -101,6 +101,12 @@ git clone https://github.com/intergra/student-manager.git
 # 进入项目目录
 cd student-manager
 
+# 进入数据目录，并用数据模版文件来创建数据文件(可选)
+# 如果不执行以下三行，则程序会自动生成内容为空的student.dat文件
+# cd data
+# copy student.dat.template student.dat
+# cd ../
+
 # 创建构建目录
 mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
 
@@ -111,7 +117,7 @@ cd cmake-build-debug
 cmake ..
 cmake --build .
 
-# 手动设置UTF-8编码(如果有中文乱码时)
+# 手动设置UTF-8编码(如果有中文乱码)
 # chcp 65001
 
 # 运行程序
@@ -129,6 +135,12 @@ git clone https://github.com/intergra/student-manager.git
 
 # 进入项目目录
 cd student-manager
+
+# 进入数据目录，并用数据模版文件来创建数据文件(可选)
+# 如果不执行以下三行，则程序会自动生成内容为空的student.dat文件
+# cd data
+# cp student.dat.template student.dat
+# cd ../
 
 # 创建并进入构建目录
 mkdir -p cmake-build-debug
