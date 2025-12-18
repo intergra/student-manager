@@ -184,11 +184,9 @@ void displayAllStudents() {
     printf("├──────────────────────────────────────────────────────────────────────────────┤\n");
 
     // 表头列名
-    // 关键点讲解：这里去掉了不同列之间的竖线 '|'，改用空格分隔
+    // 去掉不同列之间的竖线 '|'，改用空格分隔
     // 这样做是为了防止中文字符宽度不一致导致的表格错位问题
-    // %-14s: 左对齐，占用14个字符宽
-    // %-34s: 给专业预留了很大的空间，防止文字溢出
-    printf("│ %-14s  %-14s  %-34s  %-8s │\n", "学号", "姓名", "专业", "GPA");
+    printf("   学号            姓名             专业                              GPA     \n");
 
     // 分割线
     printf("├──────────────────────────────────────────────────────────────────────────────┤\n");
@@ -196,7 +194,7 @@ void displayAllStudents() {
     // 遍历打印数据
     current = head;
     while (current != NULL) {
-        printf("│ %-14s  %-14s  %-34s  %-8.2f │\n",
+        printf(" %-14s  %-14s  %-34s  %-8.2f \n",
                current->id, current->name, current->major, current->gpa);
         current = current->next;
     }
@@ -450,15 +448,15 @@ void calculateStatistics() {
     printf("│              统计信息                       │\n");
     printf("├─────────────────────────────────────────────┤\n");
     // 格式化输出，%-30d 表示左对齐数字，保证右侧边框对齐
-    printf("│ 学生总数: %-30d │\n", count);
-    printf("│ 平均GPA:  %-30.2f │\n", average);
-    printf("│                                             │\n");
+    printf(" 学生总数: %-31d │\n", count);
+    printf(" 平均GPA:  %-30.2f │\n", average);
+    printf("                                             \n");
     // 这里预留了空格填补之前位置，保持对齐
-    printf("│ 最高GPA:  %-33.2f         │\n", maxGpa);
-    printf("│    学号: %-12s 姓名: %-16s │\n", maxStudent->id, maxStudent->name);
-    printf("│                                             │\n");
-    printf("│ 最低GPA:  %-33.2f         │\n", minGpa);
-    printf("│    学号: %-12s 姓名: %-16s │\n", minStudent->id, minStudent->name);
+    printf(" 最高GPA:  %-33.2f         \n", maxGpa);
+    printf("    学号: %-12s 姓名: %-16s \n", maxStudent->id, maxStudent->name);
+    printf("                                             \n");
+    printf(" 最低GPA:  %-33.2f         \n", minGpa);
+    printf("    学号: %-12s 姓名: %-16s \n", minStudent->id, minStudent->name);
     printf("└─────────────────────────────────────────────┘\n");
 
     // 统计GPA分布区间
