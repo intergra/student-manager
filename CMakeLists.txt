@@ -1,3 +1,15 @@
+# ==============================================================================
+# Project:     Student Information Management System
+# Description: CMake build configuration script.
+#
+# Author:      yangshao
+# Version:     1.0
+# Date:        2025-12-18
+#
+# License:     MIT License
+# Copyright (c) 2025 yangshao
+# ==============================================================================
+
 cmake_minimum_required(VERSION 3.10)
 project(student-manager C)
 

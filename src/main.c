@@ -1,5 +1,19 @@
-#include <stdio.h>
+/**
+ * @file      main.c
+ * @brief     Main entry point for the Student Information Management System.
+ * @details   This file contains the main function which initiates the system,
+ *            displays the menu, and handles user input loops.
+ *
+ * @author    yangshao
+ * @date      2025-12-18
+ * @version   1.0
+ *
+ * @copyright Copyright (c) 2025 yangshao
+ * @license   MIT License
+ *            SPDX-License-Identifier: MIT
+ */
 
+#include <stdio.h>
 #include "student.h"
 
 int main() {

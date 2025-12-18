@@ -1,3 +1,18 @@
+/**
+ * @file      student.c
+ * @brief     Implementation of student management logic and file persistence.
+ * @details   Contains the core logic for CRUD operations (Create, Read, Update, Delete)
+ *            on the linked list, as well as file I/O operations for data persistence.
+ *
+ * @author    yangshao
+ * @date      2025-12-18
+ * @version   1.0
+ *
+ * @copyright Copyright (c) 2025 yangshao
+ * @license   MIT License
+ *            SPDX-License-Identifier: MIT
+ */
+
 #include "student.h"
 #include <stdio.h>
 #include <stdlib.h>

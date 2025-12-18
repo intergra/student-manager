@@ -1,3 +1,18 @@
+/**
+ * @file      student.h
+ * @brief     Header file defining data structures and function prototypes.
+ * @details   This file contains the Student struct definition, macro constants
+ *            for file paths, and declarations for all management functions.
+ *
+ * @author    yangshao
+ * @date      2025-12-18
+ * @version   1.0
+ *
+ * @copyright Copyright (c) 2025 yangshao
+ * @license   MIT License
+ *            SPDX-License-Identifier: MIT
+ */
+
 #ifndef STUDENT_H
 #define STUDENT_H
 
