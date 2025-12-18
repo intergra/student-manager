@@ -14,14 +14,16 @@
  */
 
 #include "../include/student.h"
-#include <windows.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 
 int main() {
 
-    // 强制把控制台设为 UTF-8 模式
-    SetConsoleOutputCP(65001);
+    // 只在 Windows 下执行 chcp 命令
+    #ifdef _WIN32
+        system("chcp 65001");
+    #endif
 
     // 程序启动时从文件加载数据
     loadFromFile();
