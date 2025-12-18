@@ -14,7 +14,7 @@
  */
 
 #include <stdio.h>
-#include "student.h"
+#include "../include/student.h"
 
 int main() {
     int choice;
