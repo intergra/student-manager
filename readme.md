@@ -103,11 +103,11 @@ cd student-manager
 
 # 进入数据目录，并用数据模版文件来创建数据文件(可选)
 # 如果不执行以下三行，则程序会自动生成内容为空的student.dat文件
-# cd data
-# copy student.dat.template student.dat
-# cd ../
+cd data
+copy student.dat.template student.dat
+cd ../
 
-# 创建构建目录
+# 创建构建目录(在项目目录下)
 mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
 
 #  进入构建目录
@@ -138,12 +138,14 @@ cd student-manager
 
 # 进入数据目录，并用数据模版文件来创建数据文件(可选)
 # 如果不执行以下三行，则程序会自动生成内容为空的student.dat文件
-# cd data
-# cp student.dat.template student.dat
-# cd ../
+cd data
+cp student.dat.template student.dat
+cd ../
 
-# 创建并进入构建目录
-mkdir -p cmake-build-debug
+# 创建构建目录(在项目目录下)
+mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
+
+#  进入构建目录
 cd cmake-build-debug
 
 # 配置并编译
