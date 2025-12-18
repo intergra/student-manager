@@ -184,7 +184,7 @@ student-manager/
 ├── 📘 README.md                   # 项目文档（本文件）
 │
 ├── 📁 data/                       # 数据存储目录
-│   └── 💾 students.dat            # (自动生成) 学生数据文件
+│   └── 💾 student.dat.template    # 数据模版文件
 │
 ├── 📁 include/                    # 头文件目录
 │   └── 📄 student.h               # 结构体定义、函数声明
@@ -452,10 +452,10 @@ Settings → Tools → Terminal → Shell path
 **解决方案：删除文件**
 ```bash
 # Windows
-del cmake-build-debug\students.dat
+del cmake-build-debug\student.dat
 
 # Linux
-rm cmake-build-debug/students.dat
+rm cmake-build-debug/student.dat
 ```
 
 **Q: 输入学号报错**
