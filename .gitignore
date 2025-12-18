@@ -38,12 +38,12 @@
 *.hex
 
 # Build files
-cmake-build-debug/
-cmake-build-release/
-build/
+/cmake-build-debug/
+/cmake-build-release/
+/build/
 
 # Data files
-data/student.dat
+/data/student.dat
 
 # Debug files
 *.dSYM/
