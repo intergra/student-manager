@@ -49,7 +49,7 @@ Student* createStudent(const char *id, const char *name, const char *major, floa
     // 动态分配内存，大小为一个Student结构体
     Student *newStudent = (Student*)malloc(sizeof(Student));
     if (newStudent == NULL) {
-        printf("[错误] 内存分配失败！\n");
+        printf("  [错误] 内存分配失败！\n");
         return NULL;
     }
 
@@ -95,7 +95,7 @@ void addStudent() {
     float gpa;
 
     printf("┌─────────────────────────────────────┐\n");
-    printf("│         添加学生信息                │\n");
+    printf("           添加学生信息                \n");
     printf("└─────────────────────────────────────┘\n\n");
 
     printf("请输入学号: ");
@@ -103,7 +103,7 @@ void addStudent() {
     id[strcspn(id, "\n")] = '\0';       // 去除 fgets 读入的换行符 '\n'
 
     if (strlen(id) == 0) {
-        printf(" [错误] 学号不能为空！\n");
+        printf("  [错误] 学号不能为空！\n");
         return;
     }
 
@@ -111,7 +111,7 @@ void addStudent() {
     Student *temp = head;
     while (temp != NULL) {
         if (strcmp(temp->id, id) == 0) {
-            printf(" [错误] 学号 %s 已存在！请使用其他学号\n", id);
+            printf("  [错误] 学号 %s 已存在！请使用其他学号\n", id);
             return;
         }
         temp = temp->next;
@@ -123,7 +123,7 @@ void addStudent() {
     name[strcspn(name, "\n")] = '\0';
 
     if (strlen(name) == 0) {
-        printf(" [错误] 姓名不能为空！\n");
+        printf("  [错误] 姓名不能为空！\n");
         return;
     }
 
@@ -133,7 +133,7 @@ void addStudent() {
     major[strcspn(major, "\n")] = '\0';
 
     if (strlen(major) == 0) {
-        printf(" [错误] 专业不能为空！\n");
+        printf("  [错误] 专业不能为空！\n");
         return;
     }
 
@@ -143,7 +143,7 @@ void addStudent() {
     if (scanf("%f", &gpa) != 1 || gpa < 0.0 || gpa > 4.0) {
         // 清空输入缓冲区，防止死循环
         while (getchar() != '\n') {}
-        printf(" [错误] GPA必须在0.0到4.0之间！\n");
+        printf("  [错误] GPA必须在0.0到4.0之间！\n");
         return;
     }
 
@@ -158,15 +158,15 @@ void addStudent() {
     newStudent->next = head;    // 将新节点的 next 指向当前的头
     head = newStudent;          // 更新头指针指向新节点
 
-    printf("\n [成功] 学生信息添加成功！\n");
+    printf("\n  [成功] 学生信息添加成功！\n");
     printf("   学号: %s | 姓名: %s | 专业: %s | GPA: %.2f\n", id, name, major, gpa);
 }
 
 // 显示所有学生
 void displayAllStudents() {
     if (head == NULL) {
-        printf(" 暂无学生信息\n");
-        printf(" [提示] 请先使用菜单选项1添加学生\n");
+        printf("  暂无学生信息\n");
+        printf("  [提示] 请先使用菜单选项1添加学生\n");
         return;
     }
 
@@ -180,7 +180,7 @@ void displayAllStudents() {
 
     // 表格头部
     printf("┌──────────────────────────────────────────────────────────────────────────────┐\n");
-    printf("│                       所有学生信息 (共 %d 人)                                 │\n", count);
+    printf("                          所有学生信息 (共 %d 人)                                \n", count);
     printf("├──────────────────────────────────────────────────────────────────────────────┤\n");
 
     // 表头列名
@@ -207,12 +207,12 @@ void displayAllStudents() {
 void searchStudent() {
     // 没有学生时
     if (head == NULL) {
-        printf("[提示] 暂无学生信息!\n");
+        printf("  [提示] 暂无学生信息!\n");
         return;
     }
 
     char id[MAX_ID];
-    printf(" 请输入要查找的学号: ");
+    printf("请输入要查找的学号: ");
     fgets(id, MAX_ID, stdin);
     id[strcspn(id, "\n")] = '\0';
 
@@ -222,25 +222,25 @@ void searchStudent() {
         if (strcmp(current->id, id) == 0) {
             // 找到了，打印详情信息卡片
             printf("\n┌─────────────────────────────────────┐\n");
-            printf("│         查找结果                    │\n");
+            printf("           查找结果                    \n");
             printf("├─────────────────────────────────────┤\n");
-            printf("│ 学号: %-29s │\n", current->id);
-            printf("│ 姓名: %-29s │\n", current->name);
-            printf("│ 专业: %-29s │\n", current->major);
-            printf("│ GPA:  %-29.2f │\n", current->gpa);
+            printf("    学号: %-29s \n", current->id);
+            printf("    姓名: %-29s \n", current->name);
+            printf("    专业: %-29s \n", current->major);
+            printf("    GPA : %-29.2f \n", current->gpa);
             printf("└─────────────────────────────────────┘\n");
             return;
         }
         current = current->next;
     }
 
-    printf(" [提示] 未找到学号为 %s 的学生\n", id);
+    printf("  [提示] 未找到学号为 %s 的学生\n", id);
 }
 
 // 修改学生信息
 void updateStudent() {
     if (head == NULL) {
-        printf("[提示] 暂无学生信息\n");
+        printf("  [提示] 暂无学生信息\n");
         return;
     }
 
@@ -262,24 +262,24 @@ void updateStudent() {
             printf("\n当前学生信息:\n");
             printf("  姓名: %s\n", current->name);
             printf("  专业: %s\n", current->major);
-            printf("  GPA:  %.2f\n\n", current->gpa);
+            printf("  GPA : %.2f\n\n", current->gpa);
 
             // 输入新信息
             printf("请输入新信息:\n");
 
-            printf("姓名: ");
+            printf("  姓名: ");
             fgets(current->name, MAX_NAME, stdin);                  // 更新name
             current->name[strcspn(current->name, "\n")] = '\0';   // 将\n 替换成字符串结束符 \0
 
-            printf("专业: ");
+            printf("  专业: ");
             fgets(current->major, MAX_MAJOR, stdin);
             current->major[strcspn(current->major, "\n")] = '\0';
 
-            printf("GPA (0.0-4.0): ");
+            printf("  GPA (0.0-4.0): ");
             float temp;  // 临时变量
             if (scanf("%f", &temp) != 1 || temp < 0.0 || temp > 4.0) {  //输入的GPA不符合时
                 while (getchar() != '\n') {}
-                printf(" [错误] GPA输入无效！\n");
+                printf("  [错误] GPA输入无效！\n");
                 return;
             }
             // 验证通过后，才真正赋值
@@ -287,24 +287,24 @@ void updateStudent() {
 
             while (getchar() != '\n') {}
 
-            printf("\n [成功] 学生信息修改成功！\n");
+            printf("\n  [成功] 学生信息修改成功！\n");
             return;
         }
         current = current->next;
     }
 
-    printf(" [提示] 未找到学号为 %s 的学生\n", id);
+    printf("  [提示] 未找到学号为 %s 的学生\n", id);
 }
 
 // 删除学生
 void deleteStudent() {
     if (head == NULL) {
-        printf("[提示] 暂无学生信息\n");
+        printf("  [提示] 暂无学生信息\n");
         return;
     }
 
     char id[MAX_ID];
-    printf("请输入要删除的学号: ");
+    printf("  请输入要删除的学号: ");
     fgets(id, MAX_ID, stdin);
     id[strcspn(id, "\n")] = '\0';
 
@@ -327,7 +327,7 @@ void deleteStudent() {
 
             // 不是y或者Y
             if (confirm != 'y' && confirm != 'Y') {
-                printf(" 删除操作已取消\n");
+                printf("  [提示] 删除操作已取消!\n");
                 return;
             }
 
@@ -342,7 +342,7 @@ void deleteStudent() {
             }
 
             free(current); // 释放内存
-            printf(" [成功] 学生信息删除成功！\n");
+            printf("  [成功] 学生信息删除成功!\n");
             return;
         }
 
@@ -351,14 +351,14 @@ void deleteStudent() {
         current = current->next;
     }
 
-    printf(" [提示] 未找到学号为 %s 的学生\n", id);
+    printf("  [提示] 未找到学号为 %s 的学生\n", id);
 }
 
 // 排序 (使用冒泡排序算法交换节点数据)
 void sortStudents() {
     // 学生数量为0或1时
     if (head == NULL || head->next == NULL) {
-        printf("[提示] 学生数量不足，无需排序\n");
+        printf("  [提示] 学生数量不足，无需排序\n");
         return;
     }
 
@@ -403,14 +403,14 @@ void sortStudents() {
         lptr = ptr1; // 每一轮冒泡后，最后的元素已经是最大的了
     } while (swapped);
 
-    printf("[成功] 已按GPA从高到低排序完成！\n\n");
+    printf("  [成功] 已按GPA从高到低排序完成！\n\n");
     displayAllStudents(); // 排序后直接显示
 }
 
 // 统计信息
 void calculateStatistics() {
     if (head == NULL) {
-        printf("[提示] 暂无学生信息\n");
+        printf("  [提示] 暂无学生信息\n");
         return;
     }
 
@@ -445,7 +445,7 @@ void calculateStatistics() {
 
     // 显示统计框
     printf("┌─────────────────────────────────────────────┐\n");
-    printf("│                  统计信息                   │\n");
+    printf("                   统计信息                    \n");
     printf("├─────────────────────────────────────────────┤\n");
     // 格式化输出，%-30d 表示左对齐数字，保证右侧边框对齐
     printf("    学生总数: %-28d \n", count);
@@ -471,7 +471,7 @@ void calculateStatistics() {
         current = current->next;
     }
 
-    printf("    GPA分布情况:\n");
+    printf("  GPA分布情况:\n");
     printf("\n");
     // 强制转换为float进行百分比计算
     printf("    优秀 (3.5-4.0): %d人 (%.1f%%)\n", excellent, (float)excellent/count*100);
@@ -490,7 +490,7 @@ void saveToFile() {
     // "wb" 模式：二进制写入，如果文件不存在则创建
     FILE *file = fopen(DATA_FILE, "wb");
     if (file == NULL) {
-        printf(" [错误] 无法打开文件进行写入！\n");
+        printf("  [错误] 无法打开文件进行写入！\n");
         return;
     }
 
