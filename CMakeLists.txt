@@ -17,12 +17,13 @@ project(student-manager C)
 set(CMAKE_C_STANDARD 11)
 
 if(MSVC)
+    # 下面的命令只对Windows环境有效：
+
     # 强制 MSVC 使用 UTF-8 读取源代码 (解决乱码问题)
     add_compile_options("/utf-8")
+    # 屏蔽 scanf 不安全警告
+    add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 endif()
-
-# 屏蔽 scanf 不安全警告
-add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 
 # 指定.h文件夹
 include_directories(include)
