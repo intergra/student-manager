@@ -75,7 +75,7 @@ int main() {
                 break;
             case 8:
                 saveToFile();               // 按下8：保存数据到student.dat文件
-                printf(" 数据已成功保存到文件！\n");
+                printf("  [成功] 数据已成功保存到文件！\n");
                 break;
             case 0:                         // 按下0：退出程序
                 saveToFile();
