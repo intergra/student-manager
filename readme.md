@@ -203,11 +203,12 @@ cd data
 copy student.dat.template student.dat
 cd ../
 
-# 创建构建目录(在项目目录下)
-mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
+# 在项目根目录下：
+# 启用单配置生成器，将生成的构建文件保存在生成的build目录下，设置设置构建类型为Release
+cmake -G "MinGW Makefiles" -B build -DCMAKE_BUILD_TYPE=Release
 
 #  进入构建目录
-cd cmake-build-debug
+cd build
 
 # 配置并编译
 cmake ..
@@ -238,11 +239,12 @@ cd data
 cp student.dat.template student.dat
 cd ../
 
-# 创建构建目录(在项目目录下)
-mkdir cmake-build-debug		# 目录名也可以是build或者cmake-build-release
+# 在项目根目录下：
+# 启用单配置生成器(默认)，将生成的构建文件保存在生成的build目录下，设置设置构建类型为Release
+cmake -B build -DCMAKE_BUILD_TYPE=Release
 
 #  进入构建目录
-cd cmake-build-debug
+cd build
 
 # 配置并编译
 cmake ..

@@ -86,6 +86,7 @@ int main() {
                 return 0;   // 结束整个程序
             default:
                 printf("[错误] 无效选择！请输入 0-8 之间的数字\n");
+                break;
         }
 
         printf("\n 按回车键继续...");
