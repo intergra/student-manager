@@ -445,19 +445,19 @@ void calculateStatistics() {
 
     // 显示统计框
     printf("┌─────────────────────────────────────────────┐\n");
-    printf("│              统计信息                       │\n");
+    printf("│                  统计信息                   │\n");
     printf("├─────────────────────────────────────────────┤\n");
     // 格式化输出，%-30d 表示左对齐数字，保证右侧边框对齐
-    printf(" 学生总数: %-31d \n", count);
-    printf(" 平均GPA:  %-30.2f \n", average);
+    printf("    学生总数: %-28d \n", count);
+    printf("    平均GPA:  %-27.2f \n", average);
     printf("                                             \n");
     // 这里预留了空格填补之前位置，保持对齐
-    printf(" 最高GPA:  %-33.2f         \n", maxGpa);
+    printf("    最高GPA:  %-30.2f         \n", maxGpa);
     printf("    学号: %-12s 姓名: %-16s \n", maxStudent->id, maxStudent->name);
     printf("                                             \n");
-    printf(" 最低GPA:  %-33.2f         \n", minGpa);
+    printf("    最低GPA:  %-30.2f         \n", minGpa);
     printf("    学号: %-12s 姓名: %-16s \n", minStudent->id, minStudent->name);
-    printf("└─────────────────────────────────────────────┘\n");
+    printf("├─────────────────────────────────────────────┤\n");
 
     // 统计GPA分布区间
     // 优秀，良好，中等，较差
@@ -471,12 +471,14 @@ void calculateStatistics() {
         current = current->next;
     }
 
-    printf("\nGPA分布情况:\n");
+    printf("    GPA分布情况:\n");
+    printf("\n");
     // 强制转换为float进行百分比计算
-    printf("  优秀 (3.5-4.0): %d人 (%.1f%%)\n", excellent, (float)excellent/count*100);
-    printf("  良好 (3.0-3.5): %d人 (%.1f%%)\n", good, (float)good/count*100);
-    printf("  中等 (2.0-3.0): %d人 (%.1f%%)\n", average_count, (float)average_count/count*100);
-    printf("  较差 (0.0-2.0): %d人 (%.1f%%)\n", poor, (float)poor/count*100);
+    printf("    优秀 (3.5-4.0): %d人 (%.1f%%)\n", excellent, (float)excellent/count*100);
+    printf("    良好 (3.0-3.5): %d人 (%.1f%%)\n", good, (float)good/count*100);
+    printf("    中等 (2.0-3.0): %d人 (%.1f%%)\n", average_count, (float)average_count/count*100);
+    printf("    较差 (0.0-2.0): %d人 (%.1f%%)\n", poor, (float)poor/count*100);
+    printf("└─────────────────────────────────────────────┘\n");
 }
 
 
