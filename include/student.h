@@ -20,7 +20,9 @@
 #define MAX_MAJOR 50
 #define MAX_ID 20
 #define DATA_FILE "../data/student.dat"
+
 #include <stdbool.h>
+
 
 // Student结构体
 typedef struct Student {
