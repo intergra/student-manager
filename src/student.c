@@ -14,6 +14,8 @@
  */
 
 #include "../include/student.h"
+
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -486,12 +488,12 @@ void calculateStatistics() {
 
 // 保存数据
 // 原理：直接将结构体二进制数据块写入文件
-void saveToFile() {
+bool saveToFile() {
     // "wb" 模式：二进制写入，如果文件不存在则创建
     FILE *file = fopen(DATA_FILE, "wb");
     if (file == NULL) {
         printf("  [错误] 无法打开文件进行写入！\n");
-        return;
+        return false;
     }
 
     Student *current = head;
@@ -504,6 +506,7 @@ void saveToFile() {
     }
 
     fclose(file);
+    return true;
 }
 
 // 加载数据

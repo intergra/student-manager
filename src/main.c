@@ -19,11 +19,10 @@
 
 
 int main() {
-
     // 只在 Windows 下执行 chcp 命令
-    #ifdef _WIN32
-        system("chcp 65001");
-    #endif
+#ifdef _WIN32
+    system("chcp 65001");
+#endif
 
     // 程序启动时从文件加载数据
     loadFromFile();
@@ -74,8 +73,9 @@ int main() {
                 calculateStatistics();      // 按下7：计算并显示统计信息
                 break;
             case 8:
-                saveToFile();               // 按下8：保存数据到student.dat文件
-                printf("  [成功] 数据已成功保存到文件！\n");
+                if (saveToFile()) {         // 按下8：保存数据到student.dat文件
+                    printf("  [成功] 数据已成功保存到文件！\n");
+                }
                 break;
             case 0:                         // 按下0：退出程序
                 saveToFile();
@@ -92,5 +92,4 @@ int main() {
         printf("\n 按回车键继续...");
         getchar();   // 等待用户按回车
     }
-
 }
