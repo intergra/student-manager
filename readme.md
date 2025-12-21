@@ -33,7 +33,9 @@
 <table>
 <tr>
 <td width="50%">
+
 **数据结构**
+
 
 - ✅ 单向链表的实现
 - ✅ 动态内存管理（malloc/free）
@@ -43,6 +45,7 @@
 <td width="50%">
 
 **核心功能**
+
 - ✅ 完整的CRUD操作
 - ✅ 冒泡排序算法
 - ✅ 二进制文件I/O
@@ -81,7 +84,7 @@ GPA           : 0.0 - 4.0 (浮点数)
 
 ## 📂 项目结构
 
-```
+```bash
 student-manager/
 │
 ├── CMakeLists.txt              # CMake构建配置
@@ -626,6 +629,7 @@ void loadFromFile() {
 <td width="50%">
 
 **进阶知识**
+
 - ✅ 链表的实现和遍历
 - ✅ 排序算法（冒泡）
 - ✅ 模块化编程
