@@ -75,15 +75,13 @@ Student* createStudent(const char *id, const char *name, const char *major, floa
 // 释放整个链表的内存，防止内存泄漏
 void freeAllStudents() {
     Student *current = head;
-    Student *next;
-
     while (current != NULL) {
-        next = current->next; // 先保存下一个节点的地址
-        free(current);        // 释放当前节点
-        current = next;       // 移动到下一个节点
+        Student *next = current->next;  // 先保存下一个节点的地址
+        free(current);                  // 释放当前节点
+        current = next;                 // 移动到下一个节点
     }
 
-    head = NULL;              //释放后将头指针置空
+    head = NULL;    //释放后将头指针置空
 }
 
 // ==================== 业务功能函数实现 ====================
@@ -363,12 +361,11 @@ void sortStudents() {
         return;
     }
 
-    int swapped;                // 每轮开始，假设没有交换
-    Student *ptr1;              // 操作最前面的节点开始比较排序
-    Student *lptr = NULL;       // 指向上一次冒泡排序结束时的节点
+    int swapped;                        // 每轮开始，假设没有交换
+    const Student *lptr = NULL;         // 指向上一次冒泡排序结束时的节点
     do {
         swapped = 0;
-        ptr1 = head;
+        Student *ptr1 = head;           // 操作最前面的节点开始比较排序
 
         while (ptr1->next != lptr) {
             // 降序排列：如果当前GPA < 下一个GPA，则交换
@@ -377,13 +374,12 @@ void sortStudents() {
                 char tempId[MAX_ID];
                 char tempName[MAX_NAME];
                 char tempMajor[MAX_MAJOR];
-                float tempGpa;
 
                 // 备份当前节点
                 strcpy(tempId, ptr1->id);
                 strcpy(tempName, ptr1->name);
                 strcpy(tempMajor, ptr1->major);
-                tempGpa = ptr1->gpa;
+                const float tempGpa = ptr1->gpa;
 
                 // 将下一个节点的数据移到当前节点
                 strcpy(ptr1->id, ptr1->next->id);
